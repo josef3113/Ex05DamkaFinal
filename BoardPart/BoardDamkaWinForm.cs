@@ -128,7 +128,6 @@ namespace BoardPart
             m_LabelPlayer2.Font = m_LabelPlayer1.Font;
             m_LabelPlayer2.AutoSize = false;
             m_FormOfBoard.Controls.Add(m_LabelPlayer2);
-
         }
 
         private void initializeButtonBoard()
