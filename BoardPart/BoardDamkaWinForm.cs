@@ -127,6 +127,19 @@ namespace BoardPart
             m_FormOfBoard.Controls.Add(m_LabelPlayer2);
         }
 
+        private void initializeFormStyleAndSize()
+        {
+            int spaceForLabels = m_LabelPlayer1.Top + m_LabelPlayer1.Height;
+            Size sizeToClient = new Size();
+            sizeToClient.Width = 600 + r_SizeOfBoard;
+            sizeToClient.Height = sizeToClient.Width + spaceForLabels;
+
+            m_FormOfBoard.ClientSize = sizeToClient;
+            m_FormOfBoard.FormBorderStyle = FormBorderStyle.FixedSingle;
+            m_FormOfBoard.StartPosition = FormStartPosition.CenterScreen;
+            m_FormOfBoard.MaximizeBox = false;
+        }
+
         private void initializeButtonBoard()
         {
             int lengthAndWidthOfButton = m_FormOfBoard.ClientSize.Width / r_SizeOfBoard;
@@ -194,19 +207,6 @@ namespace BoardPart
                     }
                 }
             }
-        }
-
-        private void initializeFormStyleAndSize()
-        {
-            int spaceForLabels = m_LabelPlayer1.Top + m_LabelPlayer1.Height;
-            Size sizeToClient = new Size();
-            sizeToClient.Width = 600 + r_SizeOfBoard;
-            sizeToClient.Height = sizeToClient.Width + spaceForLabels;
-
-            m_FormOfBoard.ClientSize = sizeToClient;
-            m_FormOfBoard.FormBorderStyle = FormBorderStyle.FixedSingle;
-            m_FormOfBoard.StartPosition = FormStartPosition.CenterScreen;
-            m_FormOfBoard.MaximizeBox = false;
         }
 
         public void RestBoard()

@@ -116,6 +116,7 @@ Please insert names without spaces and max 20 letters.")
                 this.DialogResult = DialogResult.OK;
                 MessageBox.Show(
                    string.Format("{0}  -VS-  {1}{2} Good Luck, Size => {3}{2} Continue to the game now", Player1Name, Player2Name, Environment.NewLine, BoardSize), "Yay!");
+                this.Hide();
                 GamePlay newGame = new GamePlay(BoardSize, Player1Name, Player2Name);
                 newGame.StartGame();
                 this.Close();

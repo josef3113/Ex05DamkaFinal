@@ -100,6 +100,9 @@ namespace GameManager
 
         private void updateAfterRound()
         {
+            m_Ui.RestBoard();
+            m_ActiveGame.ResetGame();
+
             if (m_ActiveGame.NowPlaying == k_Player1)
             {
                 m_Player2.Points++;
@@ -122,8 +125,6 @@ namespace GameManager
             DialogResult result = MessageBox.Show(messageForUser, "Damka", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             updateAfterRound();
-            m_Ui.RestBoard();
-            m_ActiveGame.ResetGame();
 
             if (result == DialogResult.No)
             {
