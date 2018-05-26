@@ -218,14 +218,20 @@ namespace BoardPart
                     if (i < ((r_SizeOfBoard / 2) - 1) && (i + j) % 2 != 0)
                     {
                         m_MatOfButton[j, i].Text = player1Sign;
+                        m_MatOfButton[j, i].BackColor = Color.Empty;
                     }
                     else if (i >= ((r_SizeOfBoard / 2) + 1) && (i + j) % 2 != 0)
                     {
                         m_MatOfButton[j, i].Text = player2Sign;
+                        m_MatOfButton[j, i].BackColor = Color.Empty;
                     }
                     else
                     {
-                        m_MatOfButton[j, i].Text = emptyPlace;
+                        if (m_MatOfButton[j, i].Enabled)
+                        {
+                            m_MatOfButton[j, i].Text = emptyPlace;
+                            m_MatOfButton[j, i].BackColor = Color.Empty;
+                        }
                     }
                 }
             }
