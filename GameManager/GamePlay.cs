@@ -120,13 +120,12 @@ namespace GameManager
             string messageForUser = string.Format("{0} won another round ?", nameOfPlayerWin);
 
             DialogResult result = MessageBox.Show(messageForUser, "Damka", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
-            {
-                updateAfterRound();
-                m_Ui.RestBoard();
-                m_ActiveGame.ResetGame();
-            }
-            else if (result == DialogResult.No)
+
+            updateAfterRound();
+            m_Ui.RestBoard();
+            m_ActiveGame.ResetGame();
+
+            if (result == DialogResult.No)
             {
                 m_Ui.CloseBoard();
             }
