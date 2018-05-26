@@ -147,7 +147,7 @@ namespace BoardPart
                         buttonOfPlayr1.Height = m_FormOfBoard.ClientSize.Width / r_SizeOfBoard;
                         buttonOfPlayr1.Left = j * (m_FormOfBoard.ClientSize.Width / r_SizeOfBoard);
                         buttonOfPlayr1.Top = (i * (m_FormOfBoard.ClientSize.Width / r_SizeOfBoard)) + space;
-                        buttonOfPlayr1.Click += Button_Cliked;
+                        buttonOfPlayr1.Click += button_Cliked;
 
                         m_FormOfBoard.Controls.Add(buttonOfPlayr1);
                         m_MatOfButton[j, i] = buttonOfPlayr1;
@@ -162,7 +162,7 @@ namespace BoardPart
                         buttonOfPlayr2.Height = m_FormOfBoard.ClientSize.Width / r_SizeOfBoard;
                         buttonOfPlayr2.Left = j * (m_FormOfBoard.ClientSize.Width / r_SizeOfBoard);
                         buttonOfPlayr2.Top = (i * (m_FormOfBoard.ClientSize.Width / r_SizeOfBoard)) + space;
-                        buttonOfPlayr2.Click += Button_Cliked;
+                        buttonOfPlayr2.Click += button_Cliked;
 
                         m_FormOfBoard.Controls.Add(buttonOfPlayr2);
                         m_MatOfButton[j, i] = buttonOfPlayr2;
@@ -185,7 +185,7 @@ namespace BoardPart
                         }
                         else
                         {
-                            buttonOfEmptyPlace.Click += Button_Cliked;
+                            buttonOfEmptyPlace.Click += button_Cliked;
                         }
 
                         m_FormOfBoard.Controls.Add(buttonOfEmptyPlace);
@@ -236,7 +236,7 @@ namespace BoardPart
             m_FormOfBoard.Close();
         }
 
-        private void Button_Cliked(object sender, EventArgs e)
+        private void button_Cliked(object sender, EventArgs e)
         {
             ButtonLocat currentButton = sender as ButtonLocat;
 
