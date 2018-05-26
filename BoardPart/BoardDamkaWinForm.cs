@@ -70,9 +70,9 @@ namespace BoardPart
             }
         }
 
-        public void ChangeTextOnButton(Locat i_Locate, string i_NewText)
+        public void ChangeTextOnButton(Locat i_LocateOfButton, string i_NewTextToButton)
         {
-            m_MatOfButton[i_Locate.X, i_Locate.Y].Text = i_NewText;
+            m_MatOfButton[i_LocateOfButton.X, i_LocateOfButton.Y].Text = i_NewTextToButton;
         }
 
         public void ShowBoard()
@@ -203,7 +203,7 @@ namespace BoardPart
         {
             int space = m_LabelPlayer1.Top;
             Size sizeToClient = new Size();
-            sizeToClient.Height = ((2 * r_SizeOfBoard + 2) * m_FormOfBoard.ClientSize.Width / r_SizeOfBoard) + space;
+            sizeToClient.Height = (((2 * r_SizeOfBoard) + 2) * m_FormOfBoard.ClientSize.Width / r_SizeOfBoard) + space;
             sizeToClient.Width = (2 * r_SizeOfBoard) * m_FormOfBoard.ClientSize.Width / r_SizeOfBoard;
 
             m_FormOfBoard.ClientSize = sizeToClient;

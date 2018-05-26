@@ -28,15 +28,6 @@
             return o_ActiveTheBestMove;
         }
 
-        public static MoveToDo TheMoveToDoForMultiEating(Logic i_TheGameNow, Locat i_LastDest)
-        {
-            MoveToDo activeToContinueEat = null;
-            Locat destintionIndex = new Locat();
-            i_TheGameNow.CanToMultiEat(i_LastDest, ref destintionIndex);
-            activeToContinueEat = new MoveToDo(i_LastDest, destintionIndex);
-            return activeToContinueEat;
-        }
-
         private static bool player2CanToEat(Logic i_TheGameNow, out MoveToDo o_ActiveToEat)
         {
             o_ActiveToEat = null;

@@ -58,7 +58,7 @@ namespace LogicPart
 
         private void sortListOfVesselBecomingFirst(List<Locat> i_ListToSort)
         {
-            i_ListToSort.Sort(delegate (Locat locat1, Locat locat2)
+            i_ListToSort.Sort(delegate(Locat locat1, Locat locat2)
             {
                 if (locat1.Y == locat2.Y) return 0;
                 else if (locat1.Y < locat2.Y) return -1;
@@ -500,30 +500,6 @@ namespace LogicPart
             }
 
             return isCanToEatLeftDownInY;
-        }
-
-        public bool CanToMultiEat(Locat i_IndexesToPlay, ref Locat io_IndexesThatLegal)
-        {
-            bool isHaveFreeSpot = false;
-            byte end = (byte)(m_Mat.GetLength(0) - 1);
-            byte indexX = i_IndexesToPlay.X, indexY = i_IndexesToPlay.Y;
-            isHaveFreeSpot = canToEatInRightDownInY(i_IndexesToPlay, ref io_IndexesThatLegal);
-            if (isHaveFreeSpot == false)
-            {
-                isHaveFreeSpot = canToEatInLeftDownInY(i_IndexesToPlay, ref io_IndexesThatLegal);
-            }
-
-            if (isHaveFreeSpot == false)
-            {
-                isHaveFreeSpot = canToEatInRightUpInY(i_IndexesToPlay, ref io_IndexesThatLegal);
-            }
-
-            if (isHaveFreeSpot == false)
-            {
-                isHaveFreeSpot = canToEatInLeftUpInY(i_IndexesToPlay, ref io_IndexesThatLegal);
-            }
-
-            return isHaveFreeSpot;
         }
 
         public bool Player2CanToMove(Locat i_IndexesToPlay, ref Locat io_IndexesThatLegal)

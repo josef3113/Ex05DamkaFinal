@@ -111,7 +111,7 @@ namespace GameManager
                 m_Ui.LabelOfPlayer1 = string.Format("{0}:{1}", m_Player1.Name, m_Player1.Points.ToString());
             }
 
-            m_Ui.LabelNameOfPlayingNow = m_Ui.LabelNameOfPlayingNow =  m_Player1.Name;
+            m_Ui.LabelNameOfPlayingNow = m_Player1.Name;
         }
 
         private void gameOver()
