@@ -240,9 +240,9 @@ namespace BoardPart
         {
             ButtonLocat currentButton = sender as ButtonLocat;
 
-            if (currentButton.BackColor != Color.Blue)
+            if (currentButton.BackColor != Color.CornflowerBlue)
             {
-                currentButton.BackColor = Color.Blue;
+                currentButton.BackColor = Color.CornflowerBlue;
                 if (m_Source == null)
                 {
                     m_Source = currentButton.LocatOfButton;
@@ -250,7 +250,7 @@ namespace BoardPart
             }
             else
             {
-                currentButton.BackColor = Color.White;
+                currentButton.BackColor = Color.Empty;
                 m_Source = null;
             }
 
@@ -264,8 +264,8 @@ namespace BoardPart
 
         private void cleanAfterMove()
         {
-            m_MatOfButton[m_Source.Value.X, m_Source.Value.Y].BackColor = Color.White;
-            m_MatOfButton[m_Dest.Value.X, m_Dest.Value.Y].BackColor = Color.White;
+            m_MatOfButton[m_Source.Value.X, m_Source.Value.Y].BackColor = Color.Empty;
+            m_MatOfButton[m_Dest.Value.X, m_Dest.Value.Y].BackColor = Color.Empty;
             m_Source = null;
             m_Dest = null;
         }
