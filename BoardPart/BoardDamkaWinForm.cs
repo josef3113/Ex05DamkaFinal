@@ -73,7 +73,7 @@ namespace BoardPart
 
         public void ChangeTextOnButton(Locat i_LocateOfButton, string i_NewTextToButton)
         {
-            m_MatOfButton[i_LocateOfButton.X, i_LocateOfButton.Y].Text = i_NewTextToButton;
+            m_MatOfButton[i_LocateOfButton.Y, i_LocateOfButton.X].Text = i_NewTextToButton;
         }
 
         public void ShowBoard()
@@ -151,7 +151,7 @@ namespace BoardPart
                         buttonOfPlayr1.Click += button_Cliked;
 
                         m_FormOfBoard.Controls.Add(buttonOfPlayr1);
-                        m_MatOfButton[j, i] = buttonOfPlayr1;
+                        m_MatOfButton[i, j] = buttonOfPlayr1;
                     }
                     else if (i >= ((r_SizeOfBoard / 2) + 1) && (i + j) % 2 != 0)
                     {
@@ -166,7 +166,7 @@ namespace BoardPart
                         buttonOfPlayr2.Click += button_Cliked;
 
                         m_FormOfBoard.Controls.Add(buttonOfPlayr2);
-                        m_MatOfButton[j, i] = buttonOfPlayr2;
+                        m_MatOfButton[i, j] = buttonOfPlayr2;
                     }
                     else
                     {
@@ -190,7 +190,7 @@ namespace BoardPart
                         }
 
                         m_FormOfBoard.Controls.Add(buttonOfEmptyPlace);
-                        m_MatOfButton[j, i] = buttonOfEmptyPlace;
+                        m_MatOfButton[i, j] = buttonOfEmptyPlace;
                     }
                 }
             }
@@ -217,20 +217,20 @@ namespace BoardPart
                 {
                     if (i < ((r_SizeOfBoard / 2) - 1) && (i + j) % 2 != 0)
                     {
-                        m_MatOfButton[j, i].Text = k_Player1Sign;
-                        m_MatOfButton[j, i].BackColor = Color.Empty;
+                        m_MatOfButton[i, j].Text = k_Player1Sign;
+                        m_MatOfButton[i, j].BackColor = Color.Empty;
                     }
                     else if (i >= ((r_SizeOfBoard / 2) + 1) && (i + j) % 2 != 0)
                     {
-                        m_MatOfButton[j, i].Text = k_Player2Sign;
-                        m_MatOfButton[j, i].BackColor = Color.Empty;
+                        m_MatOfButton[i, j].Text = k_Player2Sign;
+                        m_MatOfButton[i, j].BackColor = Color.Empty;
                     }
                     else
                     {
-                        if (m_MatOfButton[j, i].Enabled)
+                        if (m_MatOfButton[i, j].Enabled)
                         {
-                            m_MatOfButton[j, i].Text = k_EmptyPlace;
-                            m_MatOfButton[j, i].BackColor = Color.Empty;
+                            m_MatOfButton[i, j].Text = k_EmptyPlace;
+                            m_MatOfButton[i, j].BackColor = Color.Empty;
                         }
                     }
                 }
@@ -270,8 +270,8 @@ namespace BoardPart
 
         private void cleanAfterMove()
         {
-            m_MatOfButton[m_Source.Value.X, m_Source.Value.Y].BackColor = Color.Empty;
-            m_MatOfButton[m_Dest.Value.X, m_Dest.Value.Y].BackColor = Color.Empty;
+            m_MatOfButton[m_Source.Value.Y, m_Source.Value.X].BackColor = Color.Empty;
+            m_MatOfButton[m_Dest.Value.Y, m_Dest.Value.X].BackColor = Color.Empty;
             m_Source = null;
             m_Dest = null;
         }
