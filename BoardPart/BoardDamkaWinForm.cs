@@ -7,6 +7,7 @@ namespace BoardPart
 {
     public class BoardDamkaWinForm 
     {
+        private const string k_Player1Sign = "O", k_Player2Sign = "X", k_EmptyPlace = "";
         private readonly byte r_SizeOfBoard;
         private Form m_FormOfBoard = new Form();
         private Locat? m_Dest, m_Source;
@@ -128,9 +129,9 @@ namespace BoardPart
 
         private void initializeButtonBoard()
         {
-            const string player1Sign = "O", player2Sign = "X", emptyPlace = " ";
+            int lengthAndWidthOfButton = m_FormOfBoard.ClientSize.Width / r_SizeOfBoard;
             Locat locateForButtons = new Locat();
-            int space = m_LabelPlayer1.Height + m_LabelPlayer1.Top;
+            int spaceForLabels = m_LabelPlayer1.Top + m_LabelPlayer1.Height;
             m_MatOfButton = new ButtonLocat[r_SizeOfBoard, r_SizeOfBoard];
 
             for (int i = 0; i < r_SizeOfBoard; i++)
@@ -142,11 +143,11 @@ namespace BoardPart
                         locateForButtons.X = (byte)j;
                         locateForButtons.Y = (byte)i;
                         ButtonLocat buttonOfPlayr1 = new ButtonLocat(locateForButtons);
-                        buttonOfPlayr1.Text = player1Sign;
-                        buttonOfPlayr1.Width = m_FormOfBoard.ClientSize.Width / r_SizeOfBoard;
-                        buttonOfPlayr1.Height = m_FormOfBoard.ClientSize.Width / r_SizeOfBoard;
-                        buttonOfPlayr1.Left = j * (m_FormOfBoard.ClientSize.Width / r_SizeOfBoard);
-                        buttonOfPlayr1.Top = (i * (m_FormOfBoard.ClientSize.Width / r_SizeOfBoard)) + space;
+                        buttonOfPlayr1.Text = k_Player1Sign;
+                        buttonOfPlayr1.Width = lengthAndWidthOfButton;
+                        buttonOfPlayr1.Height = lengthAndWidthOfButton;
+                        buttonOfPlayr1.Left = j * lengthAndWidthOfButton;
+                        buttonOfPlayr1.Top = (i * lengthAndWidthOfButton) + spaceForLabels;
                         buttonOfPlayr1.Click += button_Cliked;
 
                         m_FormOfBoard.Controls.Add(buttonOfPlayr1);
@@ -157,11 +158,11 @@ namespace BoardPart
                         locateForButtons.X = (byte)j;
                         locateForButtons.Y = (byte)i;
                         ButtonLocat buttonOfPlayr2 = new ButtonLocat(locateForButtons);
-                        buttonOfPlayr2.Text = player2Sign;
-                        buttonOfPlayr2.Width = m_FormOfBoard.ClientSize.Width / r_SizeOfBoard;
-                        buttonOfPlayr2.Height = m_FormOfBoard.ClientSize.Width / r_SizeOfBoard;
-                        buttonOfPlayr2.Left = j * (m_FormOfBoard.ClientSize.Width / r_SizeOfBoard);
-                        buttonOfPlayr2.Top = (i * (m_FormOfBoard.ClientSize.Width / r_SizeOfBoard)) + space;
+                        buttonOfPlayr2.Text = k_Player2Sign;
+                        buttonOfPlayr2.Width = lengthAndWidthOfButton;
+                        buttonOfPlayr2.Height = lengthAndWidthOfButton;
+                        buttonOfPlayr2.Left = j * lengthAndWidthOfButton;
+                        buttonOfPlayr2.Top = (i * lengthAndWidthOfButton) + spaceForLabels;
                         buttonOfPlayr2.Click += button_Cliked;
 
                         m_FormOfBoard.Controls.Add(buttonOfPlayr2);
@@ -172,11 +173,11 @@ namespace BoardPart
                         locateForButtons.X = (byte)j;
                         locateForButtons.Y = (byte)i;
                         ButtonLocat buttonOfEmptyPlace = new ButtonLocat(locateForButtons);
-                        buttonOfEmptyPlace.Text = emptyPlace;
-                        buttonOfEmptyPlace.Width = m_FormOfBoard.ClientSize.Width / r_SizeOfBoard;
-                        buttonOfEmptyPlace.Height = m_FormOfBoard.ClientSize.Width / r_SizeOfBoard;
-                        buttonOfEmptyPlace.Left = j * (m_FormOfBoard.ClientSize.Width / r_SizeOfBoard);
-                        buttonOfEmptyPlace.Top = (i * (m_FormOfBoard.ClientSize.Width / r_SizeOfBoard)) + space;
+                        buttonOfEmptyPlace.Text = k_EmptyPlace;
+                        buttonOfEmptyPlace.Width = lengthAndWidthOfButton;
+                        buttonOfEmptyPlace.Height = lengthAndWidthOfButton;
+                        buttonOfEmptyPlace.Left = j * lengthAndWidthOfButton;
+                        buttonOfEmptyPlace.Top = (i * lengthAndWidthOfButton) + spaceForLabels;
 
                         if ((i + j) % 2 == 0)
                         {
@@ -197,10 +198,10 @@ namespace BoardPart
 
         private void initializeFormStyleAndSize()
         {
-            int space = m_LabelPlayer1.Top;
+            int spaceForLabels = m_LabelPlayer1.Top + m_LabelPlayer1.Height;
             Size sizeToClient = new Size();
-            sizeToClient.Height = (((2 * r_SizeOfBoard) + 2) * m_FormOfBoard.ClientSize.Width / r_SizeOfBoard) + space;
-            sizeToClient.Width = (2 * r_SizeOfBoard) * m_FormOfBoard.ClientSize.Width / r_SizeOfBoard;
+            sizeToClient.Width = 600 + r_SizeOfBoard;
+            sizeToClient.Height = sizeToClient.Width + spaceForLabels;
 
             m_FormOfBoard.ClientSize = sizeToClient;
             m_FormOfBoard.FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -210,26 +211,25 @@ namespace BoardPart
 
         public void RestBoard()
         {
-            const string player1Sign = "O", player2Sign = "X", emptyPlace = " ";
             for (int i = 0; i < r_SizeOfBoard; i++)
             {
                 for (int j = 0; j < r_SizeOfBoard; j++)
                 {
                     if (i < ((r_SizeOfBoard / 2) - 1) && (i + j) % 2 != 0)
                     {
-                        m_MatOfButton[j, i].Text = player1Sign;
+                        m_MatOfButton[j, i].Text = k_Player1Sign;
                         m_MatOfButton[j, i].BackColor = Color.Empty;
                     }
                     else if (i >= ((r_SizeOfBoard / 2) + 1) && (i + j) % 2 != 0)
                     {
-                        m_MatOfButton[j, i].Text = player2Sign;
+                        m_MatOfButton[j, i].Text = k_Player2Sign;
                         m_MatOfButton[j, i].BackColor = Color.Empty;
                     }
                     else
                     {
                         if (m_MatOfButton[j, i].Enabled)
                         {
-                            m_MatOfButton[j, i].Text = emptyPlace;
+                            m_MatOfButton[j, i].Text = k_EmptyPlace;
                             m_MatOfButton[j, i].BackColor = Color.Empty;
                         }
                     }
