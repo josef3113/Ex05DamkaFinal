@@ -118,6 +118,7 @@ namespace GameManager
         {
             string nameOfPlayerWin = m_ActiveGame.NowPlaying == k_Player1 ? m_Player2.Name : m_Player1.Name;
             string messageForUser = string.Format("{0} won another round ?", nameOfPlayerWin);
+
             DialogResult result = MessageBox.Show(messageForUser, "Damka", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
@@ -127,7 +128,6 @@ namespace GameManager
             }
             else if (result == DialogResult.No)
             {
-                MessageBox.Show("bay bay");
                 m_Ui.CloseBoard();
             }
         }
