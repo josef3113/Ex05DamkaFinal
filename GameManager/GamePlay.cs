@@ -9,7 +9,7 @@ namespace GameManager
         private const string k_NameOfComputer = "[Computer]";
         private const bool k_Player1 = true;
         private Player m_Player1, m_Player2;
-        private bool m_ComputerPlay;
+        private bool m_PlayVSComputer;
         private Logic m_ActiveGame;
         private BoardDamkaWinForm m_Ui;
 
@@ -17,14 +17,14 @@ namespace GameManager
         {
             m_Player1 = new Player(i_NameOfPlayer1);
             m_Player2 = new Player(i_NameOfPlayer2);
-            m_ComputerPlay = i_NameOfPlayer2 == k_NameOfComputer;
+            m_PlayVSComputer = i_NameOfPlayer2 == k_NameOfComputer;
             m_ActiveGame = new Logic(i_SizeOfGame);
             m_Ui = new BoardDamkaWinForm(i_SizeOfGame, i_NameOfPlayer1, i_NameOfPlayer2);
-            m_Ui.BoardUiMove += BoardUi_Move;
-            m_ActiveGame.BoardLogicMove += BoardLogic_Move;
+            m_Ui.BoardUiMove += boardUi_Move;
+            m_ActiveGame.BoardLogicMove += boardLogic_Move;
         }
 
-        private void BoardLogic_Move(Locat i_LocateThatChange, eCheckers i_ChangeToThisType)
+        private void boardLogic_Move(Locat i_LocateThatChange, eCheckers i_ChangeToThisType)
         {
             string newTextToButton = string.Empty;
             switch(i_ChangeToThisType)
@@ -49,11 +49,11 @@ namespace GameManager
             m_Ui.ChangeTextOnButton(i_LocateThatChange, newTextToButton);
         }
 
-        private void BoardUi_Move(Locat i_Source, Locat i_Dest)
+        private void boardUi_Move(Locat i_Source, Locat i_Dest)
         {
             if(m_ActiveGame.GameOn())
             {
-                if(m_ComputerPlay)
+                if(m_PlayVSComputer)
                 {
                     m_ActiveGame.PlayingMove(i_Source, i_Dest);
                     if (m_ActiveGame.IsTurnPass)

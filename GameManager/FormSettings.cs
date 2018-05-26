@@ -73,7 +73,7 @@ Please insert names without spaces and max 20 letters.")
             bool vsComputer = false;
             if (checkBoxVsPlayer2.Checked == true)
             {
-                player2BoxStr = "";
+                player2BoxStr = string.Empty;
                 vsComputer = true;
             }
 
@@ -124,7 +124,8 @@ Please insert names without spaces and max 20 letters.")
             {
                 MessageBox.Show(
 @"Plase insert all the fields in the right format
-to continue to the Game. help in the '?' .", "Fields Missing/Incorrect", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+to continue to the Game. help in the '?' .", "Fields Missing/Incorrect"
+, MessageBoxButtons.OK, MessageBoxIcon.Hand);
             }
         }
 

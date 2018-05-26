@@ -1,6 +1,6 @@
 ﻿namespace GameManager
 {
-    partial class FormSettings
+    public partial class FormSettings
     {
         /// <summary>
         /// Required designer variable.
@@ -17,6 +17,7 @@
             {
                 components.Dispose();
             }
+
             base.Dispose(disposing);
         }
 

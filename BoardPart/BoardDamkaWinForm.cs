@@ -19,10 +19,10 @@ namespace BoardPart
         {
             r_SizeOfBoard = i_SizeOfBoardGame;
             initializeBoardOfGame(i_NameOfPlayer1, i_NameOfPlayer2);
-            m_FormOfBoard.FormClosing += Form_Closing;
+            m_FormOfBoard.FormClosing += form_Closing;
         }
 
-        private void Form_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        private void form_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             DialogResult result = MessageBox.Show("Are you sure that you want exit ?", "Damka", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.No)
@@ -93,40 +93,36 @@ namespace BoardPart
             m_LabelNowPlaying.Text = "Now Playing:";
             m_LabelNowPlaying.Top = 12;
             m_LabelNowPlaying.Height = 50;
-            m_LabelNowPlaying.Width = 110;
+            m_LabelNowPlaying.Width = 70;
             m_LabelNowPlaying.Left = 0;
             m_LabelNowPlaying.Font = new Font("Segoe Print", 10);
-            m_LabelNowPlaying.AutoSize = false;
             m_FormOfBoard.Controls.Add(m_LabelNowPlaying);
 
             m_LabelNameOfPlayingNow = new Label();
             m_LabelNameOfPlayingNow.Text = i_NameOfPlayer1;
             m_LabelNameOfPlayingNow.Top = m_LabelNowPlaying.Top;
             m_LabelNameOfPlayingNow.Height = m_LabelNowPlaying.Height;
-            m_LabelNameOfPlayingNow.Width = m_LabelNowPlaying.Width;
+            m_LabelNameOfPlayingNow.Width = 150;
             m_LabelNameOfPlayingNow.Left = m_LabelNowPlaying.Right;
             m_LabelNameOfPlayingNow.Font = m_LabelNowPlaying.Font;
-            m_LabelNameOfPlayingNow.AutoSize = false;
             m_FormOfBoard.Controls.Add(m_LabelNameOfPlayingNow);
 
             m_LabelPlayer1 = new Label();
             m_LabelPlayer1.Text = string.Format("{0}:{1}", i_NameOfPlayer1, "0");
             m_LabelPlayer1.Top = m_LabelNowPlaying.Top;
-            m_LabelPlayer1.Height = m_LabelNowPlaying.Height;
-            m_LabelPlayer1.Width = m_LabelNowPlaying.Width;
-            m_LabelPlayer1.Left = m_LabelNameOfPlayingNow.Right + 30;
+            m_LabelPlayer1.Height = m_LabelNameOfPlayingNow.Height;
+            m_LabelPlayer1.Width = m_LabelNameOfPlayingNow.Width;
+            m_LabelPlayer1.Left = m_LabelNameOfPlayingNow.Right + 20;
             m_LabelPlayer1.Font = m_LabelNowPlaying.Font;
-            m_LabelPlayer1.AutoSize = false;
             m_FormOfBoard.Controls.Add(m_LabelPlayer1);
 
             m_LabelPlayer2 = new Label();
             m_LabelPlayer2.Text = string.Format("{0}:{1}", i_NameOfPlayer2, "0");
             m_LabelPlayer2.Top = m_LabelPlayer1.Top;
             m_LabelPlayer2.Height = m_LabelPlayer1.Height;
-            m_LabelPlayer2.Width = m_LabelPlayer1.Width;
-            m_LabelPlayer2.Left = m_LabelPlayer1.Right + 30;
+            m_LabelPlayer2.Width = m_LabelNameOfPlayingNow.Width;
+            m_LabelPlayer2.Left = m_LabelPlayer1.Right + 20;
             m_LabelPlayer2.Font = m_LabelPlayer1.Font;
-            m_LabelPlayer2.AutoSize = false;
             m_FormOfBoard.Controls.Add(m_LabelPlayer2);
         }
 
