@@ -12,6 +12,6 @@ namespace Program
             Application.SetCompatibleTextRenderingDefault(false);
             FormSettings formSettingsForDamka = new FormSettings();
             formSettingsForDamka.ShowDialog();
-        } 
+        }  
     } 
 }

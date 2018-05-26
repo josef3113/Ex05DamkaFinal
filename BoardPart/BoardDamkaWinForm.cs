@@ -110,18 +110,18 @@ namespace BoardPart
 
             m_LabelPlayer1 = new Label();
             m_LabelPlayer1.Text = string.Format("{0}:{1}", i_NameOfPlayer1, "0");
-            m_LabelPlayer1.Top = m_LabelNowPlaying.Top;
+            m_LabelPlayer1.Top = m_LabelNameOfPlayingNow.Top;
             m_LabelPlayer1.Height = m_LabelNameOfPlayingNow.Height;
             m_LabelPlayer1.Width = m_LabelNameOfPlayingNow.Width;
             m_LabelPlayer1.Left = m_LabelNameOfPlayingNow.Right + 20;
-            m_LabelPlayer1.Font = m_LabelNowPlaying.Font;
+            m_LabelPlayer1.Font = m_LabelNameOfPlayingNow.Font;
             m_FormOfBoard.Controls.Add(m_LabelPlayer1);
 
             m_LabelPlayer2 = new Label();
             m_LabelPlayer2.Text = string.Format("{0}:{1}", i_NameOfPlayer2, "0");
             m_LabelPlayer2.Top = m_LabelPlayer1.Top;
             m_LabelPlayer2.Height = m_LabelPlayer1.Height;
-            m_LabelPlayer2.Width = m_LabelNameOfPlayingNow.Width;
+            m_LabelPlayer2.Width = m_LabelPlayer1.Width;
             m_LabelPlayer2.Left = m_LabelPlayer1.Right + 20;
             m_LabelPlayer2.Font = m_LabelPlayer1.Font;
             m_FormOfBoard.Controls.Add(m_LabelPlayer2);

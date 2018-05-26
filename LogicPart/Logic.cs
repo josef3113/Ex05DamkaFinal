@@ -40,7 +40,7 @@ namespace LogicPart
             {
                 return m_IsTurnPass;
             }
-        }
+        } 
         
         protected virtual void OnBoardLogicMove(Locat i_ThePlaceThatChange, eCheckers i_ChangeToType)
         {
@@ -249,7 +249,7 @@ namespace LogicPart
                     sortListOfVesselBecomingFirst(r_VellsOfPlayer2);
                     r_VellsOfPlayer1.Remove(isEatedNow);
 
-                    OnBoardLogicMove(i_SourceIndex, (eCheckers)m_Mat[i_SourceIndex.Y, i_SourceIndex.X]); // book here
+                    OnBoardLogicMove(i_SourceIndex, (eCheckers)m_Mat[i_SourceIndex.Y, i_SourceIndex.X]);
                     OnBoardLogicMove(i_DestintionIndex, (eCheckers)m_Mat[i_DestintionIndex.Y, i_DestintionIndex.X]);
                     OnBoardLogicMove(isEatedNow, eCheckers.Non);
                 }

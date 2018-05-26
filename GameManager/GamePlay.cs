@@ -24,6 +24,11 @@ namespace GameManager
             m_ActiveGame.BoardLogicMove += boardLogic_Move;
         }
 
+        public void StartGame()
+        {
+            m_Ui.ShowBoard();
+        }
+
         private void boardLogic_Move(Locat i_LocateThatChange, eCheckers i_ChangeToThisType)
         {
             string newTextToButton = string.Empty;
@@ -76,11 +81,6 @@ namespace GameManager
             {
                 gameOver();
             }
-        }
-
-        public void StartGame()
-        {
-            m_Ui.ShowBoard();
         }
 
         private void computerPlayingMove()

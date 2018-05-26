@@ -1,6 +1,6 @@
 ﻿namespace LogicPart
 {
-    public class Ai
+    public static class Ai
     {
         public static MoveToDo TheBestMoveToDoForPlayer2(Logic i_TheGameNow)
         {
