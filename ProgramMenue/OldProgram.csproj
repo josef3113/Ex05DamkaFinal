@@ -38,7 +38,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="OldProgram.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GameManager\GameManager.csproj">
