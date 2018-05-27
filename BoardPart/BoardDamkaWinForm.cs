@@ -245,26 +245,28 @@ namespace BoardPart
         private void button_Cliked(object sender, EventArgs e)
         {
             ButtonLocat currentButton = sender as ButtonLocat;
-
-            if (currentButton.BackColor != Color.CornflowerBlue)
+            if (currentButton != null)
             {
-                currentButton.BackColor = Color.CornflowerBlue;
-                if (m_Source == null)
+                if (currentButton.BackColor != Color.CornflowerBlue)
                 {
-                    m_Source = currentButton.LocatOfButton;
+                    currentButton.BackColor = Color.CornflowerBlue;
+                    if (m_Source == null)
+                    {
+                        m_Source = currentButton.LocatOfButton;
+                    }
                 }
-            }
-            else
-            {
-                currentButton.BackColor = Color.Empty;
-                m_Source = null;
-            }
+                else
+                {
+                    currentButton.BackColor = Color.Empty;
+                    m_Source = null;
+                }
 
-            if (m_Source != null && !m_Source.Value.Equals(currentButton.LocatOfButton))
-            {
-                m_Dest = currentButton.LocatOfButton;
-                OnBoardUiMove(m_Source.Value, m_Dest.Value);
-                cleanAfterMove();
+                if (m_Source != null && !m_Source.Value.Equals(currentButton.LocatOfButton))
+                {
+                    m_Dest = currentButton.LocatOfButton;
+                    OnBoardUiMove(m_Source.Value, m_Dest.Value);
+                    cleanAfterMove();
+                }
             }
         }
 
